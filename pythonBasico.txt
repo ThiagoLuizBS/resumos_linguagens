@@ -1,0 +1,17 @@
+# comentário
+""" comentario multipla linha
+# -*- coding: utf-8 -*-  aceitar acentuação
++ - * / **(potencia) % (resto da divisão)
+AND OR NOT 
+if elif else while
+for i in x
+for i in range(x,y,z) 
+x = se so tiver o x até x
+y = se tiver x e y vai do fim de x até y
+z = determina de quantos em quantos é a contagem
+[0:5] seleciona parte de uma string 0 é o inicio 5 é o final
+.lower . upper 
+.strip(remove espaços no inicio e no fim da string)
+.split('')(o separador entre aspas vai separar a string em list) 
+.find("")(vai procurar o indice da substring procurada na string)
+.replace(x,y)(substitui x por y)

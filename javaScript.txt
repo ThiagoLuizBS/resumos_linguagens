@@ -1,0 +1,84 @@
+0, '', [], false, undefined, null => falsy (operadores não validos)
+para não imprimir um falsy : colocar ( variavel || 'texto caso seja falsy')
+
+para tratar null, undefined ou valores não válidos - colocar ( variavel ?? 'texto caso seja null')
+
+== - igual a, compara valores
+=== - idêntico a, compara valores e tipo (0 é diferente de "0")
+!= e !== - mesma coisa, só muda por diferente
+
+var - pode ser declarado depois de sua chamada, pois ele é elevado até o topo do seu contexto de execução, 
+pode ser declarado sem valor e alterado depois (valor sem declaração : undefined)
+
+let - contexto de bloco, precisa ser declarado antes de sua chamada, também pode ser declarado sem valor (padrão : undefined)
+
+const - parecido com o let, mas o valor precisa ser declarado no momento da chamada, valor inalterável
+
+const nome_da_funcao = (x,y) => {} isso é uma função
+function() {} isso também é uma função
+
+('atributo' in objeto) - retorna bool se existe esse atributo no objeto
+
+Object.keys(objeto) - retorna todos atributos (chaves) do objeto
+Object.values(objeto) - retorna todos valores do objeto, não mostra alguns valores compostos (estruturados/complexos)
+Object.entries(objeto) - retorna vários vetores, com chave e valores do objeto
+
+JSON.stringfy (Object.values(objeto)) - retorna todos os valores estruturados
+
+desestruturação : const { "atributo" } = objeto - ao inves de fazer objeto.atributo, a desestruturação facilita colocando o atributo entre {}, 
+da pra adicionar mais atributos as {}, para utilizar nomes diferentes do atributo basta colocar "atributo": "novo nome",
+definir valores padrão caso não seja encontrado o atributo basta declarar "atributo" = "valor"
+
+Rest operator : const { "atributo", ..."resto" } = objeto - "resto" irá retornar todos os atributos que não foram desestruturados, 
+também funciona com arrays, se colocar (, ,) 2 virgulas sem nada dentro na desestruturação do array,
+ele irá pegar o atributo (index) correspondente mas não irá salvar em nenhuma variável, logo o resto não irá conter esse atributo
+
+short syntax : para criar um objeto com um atributo que possui uma constante com mesmo nome, 
+ao inves de fazer "atributo" = atributo, basta fazer "atributo" que ele auto entende
+
+if : casa.endereco ? casa.endereco.rua : 'Não informado' - casa é o objeto, endereco o atributo, rua atributo de endereco
+colocando o ? eu terei um bool, se casa.endereco existe, retorna o primeiro valor pós ?, se não existir, retorna o valor depois do :
+
+optional chaining : casa.endereco?.rua?.cep ?? 'Não informado' - também é possível colocar ? em funções, casa.endereco?.funcao?.()
+o ? verifica se o atributo existe, se existir retorna o solicitado, se não existir retorna undefined, por isso o ?? retornaria a mensagem
+
+objeto['variavel'] - se a variavel conter o valor do nome de um atributo, ele irá retornar o atributo do objeto
+
+array.indexOf(x) - retorna o index de x na lista
+array.push(x) - adiciona um item x no final da lista
+array.unshift(x) - adiciona um item x no inicio da lista
+array.splice(x,y,z) - x é o indice inicial, y é o numero de indices que serão alterados, z é caso queira alterar por algo novo, 
+	sem z o splice removerá os itens, com o z fará a substituição, com o y valor 0, o splice irá adicionar um novo item no indice x 
+array.slice(start,end) - retorna um subarray, começando pelo start e opcionalmente passando o end (não inclui o indice end no subarray),
+	sem parametros retorna o array inteiro, parametro -2 no start retorna os 2 ultimos indices do array, 
+	parametro -2 no end o valor de end se torna -2 + array.length
+array.pop() - remove o ultimo elemento do array e retorna esse elemento
+array.shift() - remove o primeiro elemento do array e retorna esse elemento
+
+for (const i of array) - i pega cada indice do array
+array.forEach(item => {}) - o resultado é o mesmo
+array.map(item => {}) - o resultado é o mesmo, map tem um benefício que você consegue fazer um return dentro dele
+array.filter(item => item > 2) - faz um filtro do array dependendo da condição passada
+array.every(item => typeof item === 'number') - retorna um bool, true se todos os itens satisfazem uma condição
+array.some(item => typeof item === 'number') - retorna um bool, true se apenas um dos os itens satisfazem uma condição
+array.find(item => item % 2 === 0) - retorna o primeiro item que satisfaz a condição, undefined se não encontrar
+array.findIndex(item => item % 2 === 0) - retorna o indice do primeiro item que satisfaz a condição, undefined se não encontrar
+array.reduce((acc,item) => {},valor_inicial) - acc é o acumulador, para cada interação do item algo deve ser retornado e o acc recebe esse return
+	o valor_inicial é o valor inicial que o acc vai receber 
+
+template literals : nome = 'João', menssagem = 'Bem vindo,' + nome - essa é uma forma de concatenar strings 
+	ou colocar entre crase a mensagem toda e a variável colocar entre ${nome}
+
+Promises : uma promise pode trabalhar assincronamente, todo o código continuar rodando e a promise ao mesmo tempo rodando até retornar algo
+new Promise((resolve, reject) => {}) : resolve é chamado caso a promise tenha dado certo, e reject o contrário
+.then(x => {}) : é para tratar a promise caso tudo dê certo
+.catch(x => {}) : é para tratar a promise caso dê algum erro
+.finally(() => {}) : é um retorno após finalizar a promise
+
+async : uma função assincrona que sinaliza ao código que ela irá retornar algo depois de um tempo, async se torna uma promise
+await : o código irá aguardar o await executar até ir a próxima linha de código da função assíncrona
+é possível utilizar um try catch finally dentro do async
+
+export : class, function, const exportada, pode ser importada em outro arquivo do projeto e utilizado
+export default : no import você pode trocar o nome da função, só pode ter um export por módulo, não é recomendado apenas quando necessário
+import * as x from ... : importa todos os exports de um módulo como x, basta chamar x.funcao

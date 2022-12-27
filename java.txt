@@ -1,0 +1,38 @@
+/*  
+    Tipos de variáveis:
+        Texto - char 2 bytes; String variável
+        Integral - byte 1 byte -128 a 127; short 2 bytes; int 4 bytes; long 8 bytes
+        Ponto flutuante - float 4 bytes; double 8 byes
+        Lógico - Boolean 1 bit
+   
+    Modificadores de acesso:
+        Static - Todas instâncias do objeto com essa variável terão sempre o mesmo valor
+        Final - Constante, o valor quando criado não poderá mais ser alterado
+        Native - torna-se útil quando há a necessidade de reaproveitar programas desenvolvidos em outras linguagens que possuem códigos extensos e/ou de regra de negócio complexa
+        Synchronized - Parte do código multithread só poderá ser rodada uma thread por vez, a próxima thread que solicitar acesso deverá esperar o código liberar
+        Votatile - evita que qualquer alteração de variável compartilhada entre múltiplas threads seja realizada no cache local de uma thread
+
+    Modificadores de visibilidade:
+        public - Todos tem acesso
+        default (ou não declarado) - Todas as classes do MESMO PACOTE que a classe que possui o atributo tem acesso
+        Protected - O mesmo que o default, porém subclasses (herança) também terão acesso, mesmo que em outros pacotes
+        private - Apenas a classe que possui o atributo tem acesso  
+        
+    Operadores relacionais:
+        == - igual
+        != - diferente
+        < <= > >= 
+
+    Operadores lógicos:
+        && - e
+        || - ou
+        ! - negação
+
+    Formatter - Formato do System.out:
+        %c - caracter simples
+        %d - decimal
+        %e - notação científica
+        %f - ponto flutuante
+        %s - cadeia de caracteres
+        
+ */
